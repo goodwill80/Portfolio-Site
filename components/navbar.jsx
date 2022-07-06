@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { AiOutlineMenu, AiOutlineClose, AiOutlineMail } from 'react-icons/ai';
+import { FaLinkedinIn, FaGithub, FaFacebookSquare } from 'react-icons/fa';
+
 
 function Navbar() {
+    const [ nav, setNav ] = useState(false);
+    const handleNav = () => {
+        setNav(!nav);
+    }
   return (
     <div className="fixed w-full h-20 shadow-xl z-[100]">
      {/* *** Main Container - Main Menu */}
@@ -31,17 +37,19 @@ function Navbar() {
                 </Link>
             </ul>
            {/* 2b. Hamburger */}
-           <div className="md:hidden">
+           <div onClick={ handleNav } className="md:hidden">
             <AiOutlineMenu size={25}/>
            </div>
         </div>
       </div>
 
      {/* *** Secondary Container - Sidebar Menu (NOTE: overlay - bg-black/70 */}
-      <div className="fixed left-0 top-0 w-full h-screen bg-black/70"> 
+      <div className={ nav ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/70": ""}> 
         {/* Sidebar Menu */}
-        <div className="fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen 
-        bg-[#ecf0f3] p-10 ease-in duration-500">
+        <div className={ nav 
+        ? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
+        : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
+        }>
             {/* 1st Section of Sidebar - Logo, close btn and Mission statement */}
             <div>
                 {/* a. Image and Close btn */}
@@ -49,7 +57,7 @@ function Navbar() {
                     {/* Image */}
                     <Image src="/../public/assets/navLogo.png" alt="/" width="87" height="35" />
                     {/* Close Btn */}
-                    <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer">
+                    <div onClick={ handleNav } className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer">
                         <AiOutlineClose />
                     </div>
                 </div>
@@ -83,8 +91,19 @@ function Navbar() {
                     {/* Tagline */}
                     <p className="uppercase tracking-widest text-[#5651e5]">Let's Connect</p>
                     {/* Icons */}
-                    <div>
-
+                    <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
+                        <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                            <FaLinkedinIn/>
+                        </div>
+                        <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                            <FaGithub />
+                        </div>
+                        <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                            <AiOutlineMail />
+                        </div>
+                        <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                            <FaFacebookSquare />
+                        </div>
                     </div>
                 </div>
             </div>
