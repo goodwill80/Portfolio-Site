@@ -8,7 +8,7 @@ import { HiOutlineChevronDoubleUp } from 'react-icons/hi'
 
 function Contact() {
   return (
-    <div className="w-full lg:h-screen">
+    <div id="contact" className="w-full lg:h-screen">
 
      {/* Container for Page Title and Image */}
       <div className="max-w-[1240px] m-auto px-2 py-16 w-full">
