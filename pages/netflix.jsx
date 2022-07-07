@@ -9,11 +9,7 @@ function netflix() {
     <div className='w-full'>
       <div className='w-screen h-[50vh] relative'>
         <div className='absolute top-0 left-0 w-full h-[50vh] bg-black/70 z-10' />
-        <div className="p-8 md:ml-16">
-            <Link href="/">
-                <Image className="cursor-pointer z-30" src="/../public/assets/navLogo.png" alt="/" width="130" height="80" />
-            </Link>
-        </div>
+       
         <Image
           className='absolute z-1'
           layout='fill'
