@@ -30,7 +30,9 @@ function Navbar() {
      {/* *** Main Container - Main Menu */}
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
         {/* 1. LOGO */}
-        <Image src="/../public/assets/navLogo.png" alt="/" width="125" height="50" />
+        <Link href="/">
+            <Image className="cursor-pointer" src="/../public/assets/navLogo.png" alt="/" width="125" height="50" />
+        </Link>
         {/* 2. LINKS MENU Main Container*/}
         <div>
             {/* 2a. Main menu */}
@@ -70,7 +72,9 @@ function Navbar() {
                 {/* a. Image and Close btn */}
                 <div className="flex w-full items-center justify-between">
                     {/* Image */}
-                    <Image src="/../public/assets/navLogo.png" alt="/" width="87" height="35" />
+                    <Link href="/">
+                        <Image src="/../public/assets/navLogo.png" alt="/" width="87" height="35" />
+                    </Link>
                     {/* Close Btn */}
                     <div onClick={ handleNav } className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer">
                         <AiOutlineClose />
@@ -86,19 +90,19 @@ function Navbar() {
                 {/* Menu Links */}
                 <ul>
                     <Link href="/">
-                        <li className="py-4 text-sm">Home</li>
+                        <li onClick={()=> setNav(false)} className="py-4 text-sm">Home</li>
                     </Link>
-                    <Link href="/">
-                        <li className="py-4 text-sm">About</li>
+                    <Link href="/#about">
+                        <li onClick={()=> setNav(false)} className="py-4 text-sm">About</li>
                     </Link>
-                    <Link href="/">
-                        <li className="py-4 text-sm">Skills</li>
+                    <Link href="/#skills">
+                        <li onClick={()=> setNav(false)} className="py-4 text-sm">Skills</li>
                     </Link>
-                    <Link href="/">
-                        <li className="py-4 text-sm">Projects</li>
+                    <Link href="/#projects">
+                        <li onClick={()=> setNav(false)} className="py-4 text-sm">Projects</li>
                     </Link>
-                    <Link href="/">
-                        <li className="py-4 text-sm">Contact</li>
+                    <Link href="/#contact">
+                        <li onClick={()=> setNav(false)} className="py-4 text-sm">Contact</li>
                     </Link>
                 </ul>
                 {/* Social Icons */}
